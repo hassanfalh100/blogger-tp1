@@ -1,0 +1,2351 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:templateVersion='1.0.0' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+    <meta charset='UTF-8'/>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=5.0' name='viewport'/>
+    <meta content='IE=edge' http-equiv='X-UA-Compatible'/>
+    
+    <!-- DNS Prefetch for Performance -->
+    <link href='//fonts.googleapis.com' rel='dns-prefetch'/>
+    <link href='//cdnjs.cloudflare.com' rel='dns-prefetch'/>
+    <link href='//www.blogger.com' rel='dns-prefetch'/>
+    
+    <!-- Preconnect for Critical Resources -->
+    <link crossorigin='' href='https://fonts.googleapis.com' rel='preconnect'/>
+    <link crossorigin='' href='https://fonts.gstatic.com' rel='preconnect'/>
+    
+    <b:include data='blog' name='all-head-content'/>
+    
+    <!-- ===== Advanced SEO Meta Tags ===== -->
+    
+    <!-- Title Optimization -->
+    <b:if cond='data:blog.pageType == &quot;item&quot;'>
+        <title><data:blog.pageName/> - <data:blog.title/></title>
+    <b:elseif cond='data:blog.pageType == &quot;archive&quot;'/>
+        <title>أرشيف <data:blog.pageName/> - <data:blog.title/></title>
+    <b:elseif cond='data:blog.pageType == &quot;index&quot;'/>
+        <b:if cond='data:blog.searchLabel'>
+            <title><data:blog.searchLabel/> - <data:blog.title/></title>
+        <b:elseif cond='data:blog.searchQuery'/>
+            <title>نتائج البحث: <data:blog.searchQuery/> - <data:blog.title/></title>
+        <b:else/>
+            <title><data:blog.title/> - يلا شوت | بث مباشر للمباريات</title>
+        </b:if>
+    <b:elseif cond='data:blog.pageType == &quot;static_page&quot;'/>
+        <title><data:blog.pageName/> - <data:blog.title/></title>
+    <b:elseif cond='data:blog.pageType == &quot;error_page&quot;'/>
+        <title>الصفحة غير موجودة - <data:blog.title/></title>
+    <b:else/>
+        <title><data:blog.pageTitle/></title>
+    </b:if>
+    
+    <!-- Meta Description -->
+    <b:if cond='data:blog.pageType == &quot;item&quot;'>
+        <b:if cond='data:blog.metaDescription'>
+            <meta expr:content='data:blog.metaDescription' name='description'/>
+        <b:else/>
+            <meta expr:content='data:blog.pageName + &quot; - شاهد المباراة مباشرة على &quot; + data:blog.title' name='description'/>
+        </b:if>
+    <b:elseif cond='data:blog.pageType == &quot;index&quot;'/>
+        <b:if cond='data:blog.searchLabel'>
+            <meta expr:content='&quot;جميع أخبار ومباريات &quot; + data:blog.searchLabel + &quot; - بث مباشر على &quot; + data:blog.title' name='description'/>
+        <b:else/>
+            <meta expr:content='data:blog.title + &quot; - موقع يلا شوت لمشاهدة البث المباشر للمباريات، أهداف وملخصات، أخبار كرة القدم العربية والعالمية&quot;' name='description'/>
+        </b:if>
+    <b:else/>
+        <meta expr:content='data:blog.metaDescription' name='description'/>
+    </b:if>
+    
+    <!-- Robots Meta -->
+    <b:if cond='data:blog.pageType == &quot;archive&quot;'>
+        <meta content='noindex, nofollow' name='robots'/>
+    <b:elseif cond='data:blog.pageType == &quot;error_page&quot;'/>
+        <meta content='noindex, nofollow' name='robots'/>
+    <b:elseif cond='data:blog.searchQuery'/>
+        <meta content='noindex, nofollow' name='robots'/>
+    <b:else/>
+        <meta content='index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' name='robots'/>
+    </b:if>
+    
+    <!-- Canonical URL -->
+    <link expr:href='data:blog.canonicalUrl' rel='canonical'/>
+    
+    <!-- ===== Open Graph Meta Tags ===== -->
+    <meta content='ar_AR' property='og:locale'/>
+    <meta expr:content='data:blog.title' property='og:site_name'/>
+    <meta content='website' property='og:type'/>
+    <meta expr:content='data:blog.canonicalUrl' property='og:url'/>
+    
+    <b:if cond='data:blog.pageType == &quot;item&quot;'>
+        <meta content='article' property='og:type'/>
+        <meta expr:content='data:blog.pageName' property='og:title'/>
+        <b:if cond='data:blog.metaDescription'>
+            <meta expr:content='data:blog.metaDescription' property='og:description'/>
+        </b:if>
+    <b:elseif cond='data:blog.pageType == &quot;index&quot;'/>
+        <b:if cond='data:blog.searchLabel'>
+            <meta expr:content='data:blog.searchLabel + &quot; - &quot; + data:blog.title' property='og:title'/>
+        <b:else/>
+            <meta expr:content='data:blog.title' property='og:title'/>
+        </b:if>
+    <b:else/>
+        <meta expr:content='data:blog.pageTitle' property='og:title'/>
+    </b:if>
+    
+    <!-- Open Graph Image -->
+    <b:if cond='data:blog.postImageThumbnailUrl'>
+        <meta expr:content='data:blog.postImageThumbnailUrl' property='og:image'/>
+        <meta expr:content='data:blog.postImageThumbnailUrl' property='og:image:secure_url'/>
+    </b:if>
+    
+    <!-- ===== Twitter Card Meta Tags ===== -->
+    <meta content='summary_large_image' name='twitter:card'/>
+    <b:if cond='data:blog.pageType == &quot;item&quot;'>
+        <meta expr:content='data:blog.pageName' name='twitter:title'/>
+    <b:else/>
+        <meta expr:content='data:blog.title' name='twitter:title'/>
+    </b:if>
+    <b:if cond='data:blog.metaDescription'>
+        <meta expr:content='data:blog.metaDescription' name='twitter:description'/>
+    </b:if>
+    <b:if cond='data:blog.postImageThumbnailUrl'>
+        <meta expr:content='data:blog.postImageThumbnailUrl' name='twitter:image'/>
+    </b:if>
+    
+    <!-- Theme Color -->
+    <meta content='#cc0000' name='theme-color'/>
+    <meta content='#cc0000' name='msapplication-navbutton-color'/>
+    <meta content='#cc0000' name='apple-mobile-web-app-status-bar-style'/>
+    
+    <!-- Author and Publisher -->
+    <meta expr:content='data:blog.title' name='author'/>
+    <meta expr:content='data:blog.title' name='publisher'/>
+    
+    <!-- Rating and Distribution -->
+    <meta content='general' name='rating'/>
+    <meta content='global' name='distribution'/>
+    <meta content='index, follow' name='googlebot'/>
+    
+    <!-- Keywords (for legacy support) -->
+    <b:if cond='data:blog.pageType == &quot;item&quot;'>
+        <meta expr:content='data:blog.pageName + &quot;, بث مباشر, يلا شوت, مباريات, كرة القدم&quot;' name='keywords'/>
+    <b:else/>
+        <meta content='يلا شوت, بث مباشر, مباريات اليوم, كرة القدم, أهداف, ملخصات, Yalla Shoot' name='keywords'/>
+    </b:if>
+    
+    <!-- Fonts and Icons -->
+    <link href='https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&amp;display=swap' rel='stylesheet'/>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' rel='stylesheet'/>
+    
+    <!-- Favicon -->
+    <link expr:href='data:blog.bloggerUrl + &quot;/favicon.ico&quot;' rel='icon' type='image/x-icon'/>
+    <link expr:href='data:blog.bloggerUrl + &quot;/favicon.ico&quot;' rel='shortcut icon' type='image/x-icon'/>
+    <link href='/favicon.ico' rel='apple-touch-icon'/>
+    
+    <b:skin><![CDATA[
+    :root {
+        --bg-primary: #ffffff;
+        --bg-secondary: #f5f5f5;
+        --bg-dark: #1a1a1a;
+        --color-primary: #1e3a5f;
+        --color-red: #cc0000;
+        --color-red-hover: #e00000;
+        --color-green: #2d7a2d;
+        --color-text-dark: #222222;
+        --color-text-gray: #666666;
+        --color-text-light: #999999;
+        --border-color: #eeeeee;
+        --shadow-light: 0 1px 3px rgba(0,0,0,0.1);
+        --shadow-medium: 0 2px 8px rgba(0,0,0,0.12);
+        --shadow-card: 0 4px 12px rgba(0,0,0,0.08);
+        --shadow-card-hover: 0 8px 25px rgba(0,0,0,0.15);
+        --radius-small: 4px;
+        --radius-medium: 6px;
+        --radius-large: 8px;
+        --radius-card: 10px;
+        --font-family: 'Cairo', sans-serif;
+        --max-width: 1200px;
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+        font-family: var(--font-family);
+        font-size: 14px;
+        line-height: 1.6;
+        color: var(--color-text-dark);
+        background-color: var(--bg-secondary);
+        direction: rtl;
+        text-align: right;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
+    a:hover { color: var(--color-primary); }
+    ul, ol { list-style: none; }
+    img { max-width: 100%; height: auto; }
+    
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 15px; }
+    
+    /* ===== Header ===== */
+    .header {
+        background-color: var(--bg-dark);
+        padding: 12px 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: var(--shadow-medium);
+    }
+    .header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .header-right, .header-center, .header-left {
+        display: flex;
+        align-items: center;
+    }
+    
+    .site-branding {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .site-logo {
+        height: 40px;
+        width: auto;
+        border-radius: var(--radius-small);
+    }
+    
+    .site-logo.responsive-img {
+        max-width: 100%;
+        height: auto;
+        max-height: 60px;
+        object-fit: contain;
+    }
+    
+    .header-image-wrapper {
+        display: inline-block;
+        line-height: 0;
+    }
+    
+    .site-title {
+        color: #ffffff;
+        font-size: 18px;
+        font-weight: 700;
+    }
+    
+    .site-title a {
+        color: #ffffff;
+        text-decoration: none;
+    }
+    
+    .site-title a:hover {
+        color: var(--color-red);
+    }
+    
+    .site-description {
+        color: #aaaaaa;
+        font-size: 12px;
+        font-weight: 400;
+        margin-top: 3px;
+    }
+    
+    .header-nav ul {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .header-nav li a {
+        display: block;
+        padding: 8px 16px;
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 500;
+        border-radius: var(--radius-large);
+        transition: all 0.3s ease;
+    }
+    
+    .header-nav li a:hover {
+        background-color: var(--color-primary);
+    }
+    
+    .header-social {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .social-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+        color: #ffffff;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .social-btn:hover {
+        transform: scale(1.1);
+    }
+    
+    .social-btn.telegram { background-color: #0088cc; }
+    .social-btn.facebook { background-color: #1877f2; }
+    .social-btn.twitter { background-color: #1da1f2; }
+    .social-btn.theme-toggle { background-color: #444; }
+    
+    /* ===== Main Navigation ===== */
+    .main-nav { background-color: #222; padding: 0; }
+    .main-nav ul { display: flex; align-items: center; gap: 0; flex-wrap: wrap; justify-content: center; }
+    .main-nav li a {
+        display: block;
+        padding: 12px 16px;
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 500;
+        transition: background-color 0.3s ease;
+    }
+    .main-nav li a:hover { background-color: var(--color-primary); color: #ffffff; }
+    
+    /* ===== Matches Section - Simple Clean Design ===== */
+    .matches-section { 
+        padding: 20px 0; 
+    }
+    
+    .matches-container {
+        background-color: #eceef2;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        overflow: hidden;
+    }
+    
+    .matches-header {
+        background-color: #ffffff;
+        padding: 18px 20px;
+        border-bottom: 1px solid #dde1e7;
+    }
+    
+    .matches-header-top {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    
+    .matches-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--color-text-dark);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .matches-title i { 
+        color: var(--color-red); 
+        font-size: 20px;
+    }
+    
+    .matches-tabs {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+    
+    .date-tab {
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        border: 1px solid #dde1e7;
+        background-color: #ffffff;
+        color: var(--color-text-gray);
+    }
+    
+    .date-tab:hover { 
+        border-color: var(--color-primary); 
+        color: var(--color-primary);
+    }
+    
+    .date-tab.active {
+        background-color: var(--color-primary);
+        color: #ffffff;
+        border-color: var(--color-primary);
+    }
+    
+    .match-date {
+        text-align: center;
+        font-size: 12px;
+        color: var(--color-text-gray);
+        margin-top: 12px;
+    }
+    
+    /* ===== Matches List ===== */
+    .matches-list-container {
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    /* ===== Match Card - Simple Design ===== */
+    .match-card {
+        background-color: #ffffff;
+        padding: 16px 20px;
+        border-radius: 10px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        cursor: pointer;
+        border: 2px solid transparent;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    
+    .match-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(30, 58, 95, 0.15), 0 3px 10px rgba(0,0,0,0.1);
+        border-color: var(--color-primary);
+        background-color: #fafbfc;
+    }
+    
+    .match-card:hover .team-name {
+        color: var(--color-primary);
+    }
+    
+    .match-card:hover .match-time {
+        color: var(--color-red);
+    }
+    
+    .match-card:hover .match-time-container {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e8ecf1 100%);
+    }
+    
+    .match-card .play-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.8);
+        width: 50px;
+        height: 50px;
+        background-color: var(--color-red);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: all 0.3s ease;
+        z-index: 10;
+        pointer-events: none;
+    }
+    
+    .match-card:hover .play-overlay {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    
+    .match-card .play-overlay i {
+        color: #ffffff;
+        font-size: 18px;
+        margin-right: -2px;
+    }
+    
+    .match-row-main {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        gap: 15px;
+        position: relative;
+        z-index: 5;
+    }
+    
+    .team-info { 
+        display: flex; 
+        align-items: center; 
+        gap: 10px; 
+    }
+    
+    .team-info.right-team { 
+        justify-content: flex-start; 
+    }
+    
+    .team-info.left-team { 
+        justify-content: flex-end; 
+        flex-direction: row-reverse;
+    }
+    
+    .team-logo {
+        width: 42px;
+        height: 42px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 11px;
+        color: #ffffff;
+        text-transform: uppercase;
+    }
+    
+    .team-name { 
+        font-size: 14px; 
+        font-weight: 600; 
+        color: var(--color-text-dark);
+        transition: color 0.3s ease;
+    }
+    
+    .match-time-container { 
+        text-align: center; 
+        background: #f8f9fa;
+        border-radius: 8px;
+        padding: 10px 15px;
+        min-width: 100px;
+        transition: background 0.3s ease;
+    }
+    
+    .match-time { 
+        font-size: 18px; 
+        font-weight: 700; 
+        color: var(--color-text-dark); 
+        display: block;
+        transition: color 0.3s ease;
+    }
+    
+    .match-status {
+        display: inline-block;
+        background-color: var(--color-green);
+        color: #ffffff;
+        padding: 3px 10px;
+        border-radius: 4px;
+        font-size: 10px;
+        font-weight: 600;
+        margin-top: 5px;
+    }
+    
+    .match-status.live { 
+        background-color: var(--color-red);
+    }
+    
+    .match-status.upcoming { 
+        background-color: var(--color-green);
+    }
+    
+    .match-status.finished { 
+        background-color: #9e9e9e;
+    }
+    
+    .match-row-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 10px;
+        margin-top: 10px;
+        border-top: 1px solid #f0f0f0;
+        position: relative;
+        z-index: 5;
+    }
+    
+    .match-info-item { 
+        display: flex; 
+        align-items: center; 
+        gap: 5px; 
+        font-size: 11px; 
+        color: var(--color-text-gray);
+    }
+    
+    .match-info-item i { 
+        color: var(--color-text-light); 
+        font-size: 10px; 
+    }
+    
+    .match-info-item.trophy i { color: #ffc107; }
+    .match-info-item.tv i { color: var(--color-primary); }
+    
+    /* ===== Responsive Matches ===== */
+    @media (max-width: 768px) {
+        .matches-tabs { gap: 6px; }
+        .date-tab { padding: 8px 14px; font-size: 12px; }
+        .match-card { padding: 14px; }
+        
+        .match-row-main {
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+        
+        .match-time-container {
+            order: -1;
+            width: 100%;
+        }
+        
+        .team-info { justify-content: center !important; flex-direction: row !important; }
+        
+        .match-row-info {
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+        
+        .team-logo { width: 36px; height: 36px; font-size: 10px; }
+        .team-name { font-size: 13px; }
+    }
+    
+    @media (max-width: 480px) {
+        .matches-header { padding: 12px 15px; }
+        .matches-title { font-size: 16px; }
+        .date-tab { padding: 7px 12px; font-size: 11px; }
+        .match-card { padding: 12px; }
+        .team-logo { width: 32px; height: 32px; font-size: 9px; border-radius: 8px; }
+        .team-name { font-size: 12px; }
+        .match-time { font-size: 16px; }
+    }
+    
+    /* ===== News Cards Section (Latest News - Home Only) ===== */
+    .latest-news-section { padding: 30px 0; }
+    
+    .latest-news-header {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: 25px;
+    }
+    
+    .latest-news-title {
+        background-color: var(--color-red);
+        color: #ffffff;
+        padding: 12px 25px;
+        font-size: 16px;
+        font-weight: 700;
+        border-radius: 0 var(--radius-medium) var(--radius-medium) 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .latest-news-title i {
+        font-size: 18px;
+    }
+    
+    /* Fix for Blogger widget wrappers */
+    .news-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+    
+    /* Make Blogger section wrapper transparent to grid */
+    .news-cards-grid > div,
+    .news-cards-grid .widget {
+        display: contents;
+    }
+    
+    .article-card {
+        background-color: var(--bg-primary);
+        border-radius: var(--radius-card);
+        overflow: hidden;
+        box-shadow: var(--shadow-card);
+        transition: all 0.3s ease;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .article-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-card-hover);
+    }
+    
+    .article-card-image {
+        width: 100%;
+        aspect-ratio: 16/10;
+        background: linear-gradient(135deg, var(--color-red) 0%, var(--color-primary) 100%);
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .article-card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+    
+    .article-card:hover .article-card-image img {
+        transform: scale(1.08);
+    }
+    
+    .article-card-placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        font-weight: 800;
+        color: #ffffff;
+        text-align: center;
+        line-height: 1.3;
+    }
+    
+    .article-card-placeholder span {
+        display: block;
+        font-size: 14px;
+        font-weight: 400;
+        opacity: 0.9;
+        margin-top: 5px;
+    }
+    
+    .article-card-content {
+        padding: 15px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .article-card-title {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--color-text-dark);
+        line-height: 1.6;
+        text-align: center;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        margin-bottom: 10px;
+        flex: 1;
+    }
+    
+    .article-card-meta {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        font-size: 12px;
+        color: var(--color-text-light);
+        padding-top: 10px;
+        border-top: 1px solid var(--border-color);
+    }
+    
+    .article-card-meta span {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+    
+    .article-card-meta i {
+        color: var(--color-primary);
+    }
+    
+    .load-more-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+    }
+    
+    .load-more-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 35px;
+        background-color: var(--color-primary);
+        color: #ffffff;
+        font-size: 15px;
+        font-weight: 600;
+        border-radius: var(--radius-large);
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .load-more-btn:hover {
+        background-color: var(--color-red);
+        transform: translateY(-2px);
+    }
+    
+    /* ===== Single Post Page ===== */
+    .post-page { padding: 20px 0; }
+    .post-container {
+        background-color: var(--bg-primary);
+        border-radius: var(--radius-large);
+        box-shadow: var(--shadow-light);
+        overflow: hidden;
+    }
+    .post-header { padding: 25px; border-bottom: 1px solid var(--border-color); }
+    .post-title { font-size: 24px; font-weight: 700; color: var(--color-text-dark); margin-bottom: 12px; line-height: 1.4; }
+    .post-meta { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; font-size: 13px; color: var(--color-text-gray); }
+    .post-meta span { display: flex; align-items: center; gap: 6px; }
+    .post-meta i { color: var(--color-primary); }
+    .post-featured-image { width: 100%; max-height: 450px; object-fit: cover; }
+    .post-content { padding: 25px; font-size: 16px; line-height: 2; color: var(--color-text-dark); }
+    .post-content p { margin-bottom: 18px; }
+    .post-content h2, .post-content h3 { margin: 25px 0 15px; color: var(--color-text-dark); }
+    .post-content img { border-radius: var(--radius-medium); margin: 20px 0; max-width: 100%; }
+    .post-content a { color: var(--color-primary); }
+    .post-content a:hover { text-decoration: underline; }
+    
+    .post-tags {
+        padding: 20px 25px;
+        border-top: 1px solid var(--border-color);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    .post-tags-title { font-size: 13px; color: var(--color-text-gray); font-weight: 600; }
+    .post-tags a {
+        display: inline-block;
+        padding: 5px 12px;
+        background-color: var(--bg-secondary);
+        border-radius: var(--radius-large);
+        font-size: 12px;
+        color: var(--color-text-gray);
+        transition: all 0.3s ease;
+    }
+    .post-tags a:hover { background-color: var(--color-primary); color: #ffffff; }
+    
+    /* ===== Comments Section - Modern Design ===== */
+    .comments-wrapper {
+        margin-top: 30px;
+        background-color: var(--bg-primary);
+        border-radius: var(--radius-large);
+        box-shadow: var(--shadow-light);
+        overflow: hidden;
+    }
+    
+    .comments-header {
+        background: linear-gradient(135deg, var(--color-primary) 0%, #2a5298 100%);
+        padding: 20px 25px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .comments-header-title {
+        color: #ffffff;
+        font-size: 18px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .comments-header-title i {
+        font-size: 22px;
+    }
+    
+    .comments-count {
+        background-color: var(--color-red);
+        color: #ffffff;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+    }
+    
+    .comments-content {
+        padding: 25px;
+    }
+    
+    .no-comments-message {
+        text-align: center;
+        padding: 40px 20px;
+        color: var(--color-text-gray);
+    }
+    
+    .no-comments-message i {
+        font-size: 48px;
+        color: var(--border-color);
+        margin-bottom: 15px;
+        display: block;
+    }
+    
+    .no-comments-message p {
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .comment-form-trigger {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 30px;
+        background: linear-gradient(135deg, var(--color-primary) 0%, #2a5298 100%);
+        color: #ffffff;
+        font-size: 15px;
+        font-weight: 600;
+        border-radius: 30px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(30, 58, 95, 0.3);
+    }
+    
+    .comment-form-trigger:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(30, 58, 95, 0.4);
+    }
+    
+    .comment-form-trigger i {
+        font-size: 16px;
+    }
+    
+    /* Comments List */
+    .comments-list {
+        margin-bottom: 25px;
+    }
+    
+    .comment-item {
+        background-color: var(--bg-secondary);
+        border-radius: var(--radius-large);
+        padding: 20px;
+        margin-bottom: 15px;
+        border-right: 4px solid var(--color-primary);
+        transition: all 0.3s ease;
+    }
+    
+    .comment-item:hover {
+        box-shadow: var(--shadow-medium);
+    }
+    
+    .comment-item.admin {
+        border-right-color: var(--color-red);
+        background-color: #fff8f8;
+    }
+    
+    .comment-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .comment-author-info {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    
+    .comment-avatar {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--color-primary) 0%, #2a5298 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        font-size: 18px;
+        font-weight: 700;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+    
+    .comment-avatar img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    
+    /* Blogger Avatar Container Styling */
+    .comment-avatar .avatar-image-container {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .comment-avatar .avatar-image-container img {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        object-fit: cover;
+        display: block !important;
+    }
+    
+    .comment-avatar .avatar-image-container .delayLoad {
+        display: none !important;
+    }
+    
+    .comment-author-name {
+        font-weight: 600;
+        color: var(--color-text-dark);
+        font-size: 15px;
+    }
+    
+    .comment-author-name a {
+        color: var(--color-primary);
+    }
+    
+    .comment-author-name a:hover {
+        text-decoration: underline;
+    }
+    
+    .comment-time {
+        font-size: 12px;
+        color: var(--color-text-light);
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+    
+    .comment-body {
+        font-size: 14px;
+        color: var(--color-text-gray);
+        line-height: 1.8;
+        padding: 10px 0;
+    }
+    
+    .comment-actions {
+        display: flex;
+        gap: 15px;
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 1px solid var(--border-color);
+    }
+    
+    .comment-action-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 13px;
+        color: var(--color-text-light);
+        cursor: pointer;
+        transition: color 0.3s ease;
+    }
+    
+    .comment-action-btn:hover {
+        color: var(--color-primary);
+    }
+    
+    /* Comment Form Iframe Container */
+    .comment-form-container {
+        margin-top: 25px;
+        background-color: var(--bg-secondary);
+        border-radius: var(--radius-large);
+        padding: 20px;
+    }
+    
+    .comment-form-container h4 {
+        font-size: 16px;
+        color: var(--color-text-dark);
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .comment-form-container h4 i {
+        color: var(--color-primary);
+    }
+    
+    .comment-iframe-wrapper {
+        background-color: var(--bg-primary);
+        border-radius: var(--radius-medium);
+        overflow: hidden;
+        border: 1px solid var(--border-color);
+    }
+    
+    .comment-iframe-wrapper iframe {
+        width: 100%;
+        min-height: 300px;
+        border: none;
+    }
+    
+    /* Blogger Default Comments Override */
+    #comments {
+        margin-top: 0;
+    }
+    
+    #comments .comment-form {
+        margin-top: 20px;
+    }
+    
+    #comments h4 {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--color-text-dark);
+        margin-bottom: 15px;
+    }
+    
+    #comments a {
+        color: var(--color-primary);
+    }
+    
+    #comments a:hover {
+        text-decoration: underline;
+    }
+    
+    .comment-form {
+        max-width: 100%;
+    }
+    
+    /* ===== Related Posts ===== */
+    .related-posts { padding: 30px 0; }
+    .related-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--color-text-dark);
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .related-title i { color: var(--color-red); font-size: 20px; }
+    
+    .related-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+    }
+    
+    /* Make Blogger section wrapper transparent to grid */
+    .related-grid > div,
+    .related-grid .widget {
+        display: contents;
+    }
+    
+    /* ===== Pagination ===== */
+    .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        padding: 20px;
+        background-color: var(--bg-primary);
+        border-radius: var(--radius-large);
+        margin-top: 20px;
+    }
+    .pagination a, .pagination span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 38px;
+        height: 38px;
+        padding: 0 12px;
+        border-radius: var(--radius-medium);
+        font-size: 14px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+    .pagination a { background-color: var(--bg-secondary); color: var(--color-text-dark); }
+    .pagination a:hover { background-color: var(--color-primary); color: #ffffff; }
+    .pagination .current { background-color: var(--color-primary); color: #ffffff; }
+    
+    /* ===== Footer ===== */
+    .footer {
+        background-color: var(--bg-dark);
+        padding: 40px 0 20px;
+        margin-top: auto;
+    }
+    
+    .footer-widgets {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        margin-bottom: 30px;
+    }
+    
+    .footer-widget h4 {
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid var(--color-red);
+        display: inline-block;
+    }
+    
+    .footer-about p {
+        color: #aaaaaa;
+        font-size: 13px;
+        line-height: 1.8;
+        margin-bottom: 15px;
+    }
+    
+    .footer-social {
+        display: flex;
+        gap: 10px;
+        margin-top: 15px;
+    }
+    .footer-social a {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+        transition: transform 0.3s ease;
+    }
+    .footer-social a:hover { transform: scale(1.15); }
+    
+    .footer-widget ul li { margin-bottom: 10px; }
+    .footer-widget ul li a {
+        color: #aaaaaa;
+        font-size: 13px;
+        transition: color 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .footer-widget ul li a:hover { color: #ffffff; }
+    .footer-widget ul li a i { font-size: 10px; color: var(--color-red); }
+    
+    .footer-bottom {
+        border-top: 1px solid #333;
+        padding-top: 20px;
+        text-align: center;
+    }
+    
+    .footer-text {
+        color: #aaaaaa;
+        font-size: 13px;
+        line-height: 1.6;
+    }
+    
+    .footer-link {
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 600;
+        display: inline-block;
+        margin-top: 10px;
+    }
+    .footer-link:hover { color: var(--color-red); }
+    
+    /* ===== Dark Mode ===== */
+    body.dark-mode {
+        --bg-primary: #1e1e1e;
+        --bg-secondary: #121212;
+        --bg-dark: #0a0a0a;
+        --color-text-dark: #e0e0e0;
+        --color-text-gray: #aaaaaa;
+        --color-text-light: #777777;
+        --border-color: #333333;
+        --shadow-card: 0 4px 12px rgba(0,0,0,0.3);
+        --shadow-card-hover: 0 8px 25px rgba(0,0,0,0.4);
+    }
+    body.dark-mode .team-logo { border-color: var(--border-color); }
+    body.dark-mode .match-card { background-color: #1a1a1a; border-color: #333; }
+    body.dark-mode .match-card:hover { 
+        background-color: #252525; 
+        border-color: var(--color-primary);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.4), 0 3px 10px rgba(0,0,0,0.3);
+    }
+    body.dark-mode .match-time-container { background: #2a2a2a; }
+    body.dark-mode .match-card:hover .match-time-container { background: linear-gradient(135deg, #2a2a2a 0%, #333 100%); }
+    body.dark-mode .news-title { background-color: var(--bg-primary); }
+    body.dark-mode .article-card { background-color: var(--bg-primary); }
+    body.dark-mode .article-card-title { color: var(--color-text-dark); }
+    body.dark-mode .comment-item { background-color: var(--bg-dark); }
+    body.dark-mode .comment-item.admin { background-color: #1a1212; }
+    body.dark-mode .comments-wrapper { background-color: var(--bg-primary); }
+    body.dark-mode .comment-form-container { background-color: var(--bg-dark); }
+    body.dark-mode .comment-iframe-wrapper { background-color: var(--bg-primary); border-color: var(--border-color); }
+    
+    /* ===== Responsive ===== */
+    @media (max-width: 1024px) {
+        .news-cards-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        
+        .related-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .header .container { flex-direction: column; text-align: center; }
+        .header-right { order: 3; width: 100%; justify-content: center; margin-bottom: 10px; }
+        .header-center { order: 2; width: 100%; justify-content: center; margin-bottom: 10px; }
+        .header-left { order: 1; width: 100%; justify-content: center; }
+        
+        .main-nav ul { flex-wrap: wrap; justify-content: center; }
+        .main-nav li a { padding: 10px 12px; font-size: 13px; }
+        
+        .matches-tabs { flex-wrap: wrap; gap: 8px; }
+        .date-tab { padding: 8px 16px; font-size: 12px; }
+        
+        .match-row-main { flex-wrap: wrap; gap: 15px; }
+        .team-info { flex: 1; min-width: 45%; }
+        .match-time-container { width: 100%; order: -1; padding: 10px 0; border-bottom: 1px dashed var(--border-color); }
+        .match-row-info { flex-wrap: wrap; gap: 8px; }
+        .match-info-item { flex: 1; min-width: 50%; justify-content: center; }
+        
+        .news-cards-grid, .related-grid { grid-template-columns: repeat(2, 1fr); }
+        
+        .footer-widgets { grid-template-columns: 1fr; gap: 30px; }
+        
+        .post-title { font-size: 20px; }
+        .post-content { font-size: 15px; padding: 20px; }
+        
+        .comments-header { flex-direction: column; text-align: center; }
+        .comment-header { flex-direction: column; align-items: flex-start; }
+    }
+    
+    @media (max-width: 480px) {
+        .container { padding: 0 10px; }
+        .date-tab { padding: 6px 12px; font-size: 11px; }
+        .team-name { font-size: 13px; }
+        .team-logo { width: 38px; height: 38px; font-size: 10px; }
+        .match-time { font-size: 18px; }
+        .news-cards-grid, .related-grid { grid-template-columns: 1fr; }
+        .article-card-placeholder { font-size: 26px; }
+        .article-card-title { font-size: 14px; }
+        .comment-avatar { width: 38px; height: 38px; font-size: 16px; }
+    }
+    
+    .widget { margin-bottom: 0; }
+    .widget ul { padding: 0; margin: 0; }
+    .post-body { line-height: 1.8; }
+    .hidden { display: none !important; }
+    
+    /* ===== Match Article Card - Full Width Banner ===== */
+    .match-article-card {
+        position: relative;
+        width: 100%;
+        min-height: 280px;
+        border-radius: 12px;
+        overflow: hidden;
+        margin-bottom: 25px;
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    }
+    
+    .match-article-card .stadium-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        opacity: 0.3;
+        transition: opacity 0.5s ease;
+    }
+    
+    .match-article-card:hover .stadium-bg {
+        opacity: 0.4;
+    }
+    
+    .match-article-card .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+    }
+    
+    .match-article-card .card-content {
+        position: relative;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 30px 40px;
+        min-height: 280px;
+    }
+    
+    .match-article-card .team-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1;
+        z-index: 10;
+    }
+    
+    .match-article-card .team-logo-wrapper {
+        width: 100px;
+        height: 100px;
+        background: rgba(255,255,255,0.95);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        margin-bottom: 15px;
+        transition: all 0.3s ease;
+        border: 3px solid rgba(255,255,255,0.3);
+    }
+    
+    .match-article-card:hover .team-logo-wrapper {
+        transform: scale(1.05);
+        box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+    }
+    
+    .match-article-card .team-logo-wrapper img {
+        width: 70px;
+        height: 70px;
+        object-fit: contain;
+    }
+    
+    .match-article-card .team-name-card {
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: 700;
+        text-align: center;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        max-width: 150px;
+        line-height: 1.4;
+    }
+    
+    .match-article-card .vs-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 20px;
+        z-index: 10;
+    }
+    
+    .match-article-card .vs-badge {
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(135deg, var(--color-red) 0%, #ff4444 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 8px 30px rgba(204, 0, 0, 0.4);
+        margin-bottom: 10px;
+        animation: pulse-vs 2s infinite;
+    }
+    
+    @keyframes pulse-vs {
+        0%, 100% { transform: scale(1); box-shadow: 0 8px 30px rgba(204, 0, 0, 0.4); }
+        50% { transform: scale(1.05); box-shadow: 0 12px 40px rgba(204, 0, 0, 0.6); }
+    }
+    
+    .match-article-card .vs-badge span {
+        color: #ffffff;
+        font-size: 20px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+    
+    .match-article-card .match-info-card {
+        text-align: center;
+    }
+    
+    .match-article-card .match-time-card {
+        color: #ffffff;
+        font-size: 24px;
+        font-weight: 700;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+    
+    .match-article-card .match-date-card {
+        color: rgba(255,255,255,0.8);
+        font-size: 13px;
+        margin-top: 5px;
+    }
+    
+    .match-article-card .match-competition {
+        display: inline-block;
+        background: rgba(255,255,255,0.15);
+        color: #ffffff;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 12px;
+        margin-top: 8px;
+        backdrop-filter: blur(5px);
+    }
+    
+    /* Match Article Card Container - Above Title */
+    .match-card-above-title {
+        margin-bottom: 20px;
+    }
+    
+    /* Responsive Match Article Card */
+    @media (max-width: 768px) {
+        .match-article-card {
+            min-height: 220px;
+        }
+        
+        .match-article-card .card-content {
+            padding: 20px 15px;
+            min-height: 220px;
+        }
+        
+        .match-article-card .team-logo-wrapper {
+            width: 75px;
+            height: 75px;
+        }
+        
+        .match-article-card .team-logo-wrapper img {
+            width: 50px;
+            height: 50px;
+        }
+        
+        .match-article-card .team-name-card {
+            font-size: 13px;
+            max-width: 100px;
+        }
+        
+        .match-article-card .vs-badge {
+            width: 50px;
+            height: 50px;
+        }
+        
+        .match-article-card .vs-badge span {
+            font-size: 14px;
+        }
+        
+        .match-article-card .match-time-card {
+            font-size: 18px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .match-article-card .team-logo-wrapper {
+            width: 60px;
+            height: 60px;
+        }
+        
+        .match-article-card .team-logo-wrapper img {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .match-article-card .team-name-card {
+            font-size: 11px;
+        }
+        
+        .match-article-card .vs-badge {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .match-article-card .vs-badge span {
+            font-size: 12px;
+        }
+    }
+    
+    /* ===== Breadcrumbs SEO ===== */
+    .breadcrumbs {
+        background-color: var(--bg-primary);
+        padding: 12px 20px;
+        border-radius: var(--radius-medium);
+        margin-bottom: 20px;
+        box-shadow: var(--shadow-light);
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    
+    .breadcrumbs a {
+        color: var(--color-text-gray);
+        font-size: 13px;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+    
+    .breadcrumbs a:hover {
+        color: var(--color-primary);
+    }
+    
+    .breadcrumbs .separator {
+        color: var(--color-text-light);
+        font-size: 10px;
+    }
+    
+    .breadcrumbs .current {
+        color: var(--color-primary);
+        font-size: 13px;
+        font-weight: 600;
+    }
+    
+    /* Skip Link for Accessibility */
+    .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        background: var(--color-primary);
+        color: #fff;
+        padding: 8px 16px;
+        border-radius: 0 0 var(--radius-medium) 0;
+        z-index: 9999;
+        transition: top 0.3s ease;
+    }
+    
+    .skip-link:focus {
+        top: 0;
+    }
+    
+    /* Screen Reader Only */
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+    ]]></b:skin>
+    
+    <script type='text/javascript'>
+    //<![CDATA[
+    function toggleTheme() {
+        document.body.classList.toggle('dark-mode');
+        const icon = document.querySelector('.theme-toggle i');
+        const isDark = document.body.classList.contains('dark-mode');
+        icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    }
+    
+    (function() {
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+        }
+    })();
+    
+    function switchDateTab(tabBtn, dateType) {
+        document.querySelectorAll('.date-tab').forEach(btn => btn.classList.remove('active'));
+        tabBtn.classList.add('active');
+        
+        const dateDisplay = document.querySelector('.match-date span');
+        if (dateDisplay) {
+            const today = new Date();
+            let targetDate = new Date();
+            
+            if (dateType === 'yesterday') targetDate.setDate(today.getDate() - 1);
+            else if (dateType === 'tomorrow') targetDate.setDate(today.getDate() + 1);
+            
+            dateDisplay.textContent = targetDate.toLocaleDateString('ar-EG', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+        }
+        
+        document.querySelectorAll('.match-card').forEach(card => {
+            card.style.opacity = '0';
+            setTimeout(() => { card.style.opacity = '1'; }, 200);
+        });
+    }
+    
+    function updateMatchStatuses() {
+        const now = new Date();
+        document.querySelectorAll('.match-card').forEach(match => {
+            const timeElement = match.querySelector('.match-time');
+            const statusElement = match.querySelector('.match-status');
+            
+            if (timeElement && statusElement) {
+                const matchTime = timeElement.textContent.trim();
+                const [hours, minutes] = matchTime.split(':').map(Number);
+                const matchDate = new Date();
+                matchDate.setHours(hours, minutes, 0, 0);
+                const diffMins = Math.round((matchDate - now) / 60000);
+                
+                if (diffMins <= -90) {
+                    statusElement.textContent = 'انتهت';
+                    statusElement.className = 'match-status finished';
+                } else if (diffMins <= 0 && diffMins > -90) {
+                    statusElement.textContent = 'مباشر';
+                    statusElement.className = 'match-status live';
+                } else if (diffMins <= 30 && diffMins > 0) {
+                    statusElement.textContent = 'بعد قليل';
+                    statusElement.className = 'match-status upcoming';
+                } else {
+                    statusElement.textContent = 'لم تبدأ';
+                    statusElement.className = 'match-status upcoming';
+                }
+            }
+        });
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        updateMatchStatuses();
+        setInterval(updateMatchStatuses, 60000);
+        loadCommentAvatars();
+        fixHeaderImageSrcset();
+        moveMatchCardAboveTitle();
+    });
+    
+    // Move match card above post title
+    function moveMatchCardAboveTitle() {
+        var matchCard = document.querySelector('.match-article-card');
+        var postHeader = document.querySelector('.post-header');
+        var postContent = document.querySelector('.post-content');
+        
+        if (matchCard && postHeader) {
+            // Check if card is inside post content, move it before post header
+            if (postContent && postContent.contains(matchCard)) {
+                matchCard.classList.add('match-card-above-title');
+                postHeader.parentNode.insertBefore(matchCard, postHeader);
+                // Remove any wrapper divs that might have been created
+                if (matchCard.previousElementSibling && matchCard.previousElementSibling.classList.contains('match-card-wrapper')) {
+                    matchCard.previousElementSibling.remove();
+                }
+            }
+        }
+    }
+    
+    // Fix header image srcset - remove duplicate resize suffix
+    function fixHeaderImageSrcset() {
+        var headerImg = document.querySelector('.site-logo.responsive-img');
+        if (headerImg) {
+            var src = headerImg.getAttribute('src') || '';
+            // Remove any existing resize suffix like =s751, =w640, etc.
+            var baseUrl = src.replace(/=s?\d+(-?\w*)*$/, '');
+            
+            if (baseUrl && baseUrl !== src) {
+                // Set clean src
+                headerImg.src = baseUrl + '=s751';
+                // Set proper srcset
+                headerImg.srcset = baseUrl + '=w320 320w, ' + baseUrl + '=w480 480w, ' + baseUrl + '=w640 640w, ' + baseUrl + '=w800 800w';
+                headerImg.sizes = '(max-width: 480px) 320px, (max-width: 768px) 480px, (max-width: 1024px) 640px, 800px';
+            }
+        }
+    }
+    
+    // Load comment avatars (Blogger lazy-load fix)
+    function loadCommentAvatars() {
+        document.querySelectorAll('.comment-avatar .delayLoad').forEach(function(img) {
+            var longdesc = img.getAttribute('longdesc');
+            if (longdesc) {
+                img.src = longdesc;
+                img.style.display = 'block';
+                img.classList.remove('delayLoad');
+            }
+        });
+    }
+    //]]>
+    </script>
+    
+    <!-- ===== Schema.org Structured Data (JSON-LD) ===== -->
+    <script type='application/ld+json'>
+    {
+        &quot;@context&quot;: &quot;https://schema.org&quot;,
+        &quot;@type&quot;: &quot;WebSite&quot;,
+        &quot;name&quot;: &quot;<data:blog.title/>&quot;,
+        &quot;url&quot;: &quot;<data:blog.homepageUrl/>&quot;,
+        &quot;potentialAction&quot;: {
+            &quot;@type&quot;: &quot;SearchAction&quot;,
+            &quot;target&quot;: &quot;<data:blog.homepageUrl/>search?q={search_term_string}&quot;,
+            &quot;query-input&quot;: &quot;required name=search_term_string&quot;
+        },
+        &quot;inLanguage&quot;: &quot;ar&quot;
+    }
+    </script>
+    
+    <!-- Organization Schema -->
+    <script type='application/ld+json'>
+    {
+        &quot;@context&quot;: &quot;https://schema.org&quot;,
+        &quot;@type&quot;: &quot;Organization&quot;,
+        &quot;name&quot;: &quot;<data:blog.title/>&quot;,
+        &quot;url&quot;: &quot;<data:blog.homepageUrl/>&quot;,
+        &quot;logo&quot;: &quot;<data:blog.homepageUrl/>favicon.ico&quot;,
+        &quot;sameAs&quot;: []
+    }
+    </script>
+    
+    <!-- Article Schema for Posts - Will be added inside post loop -->
+    
+    <!-- WebPage Schema for Label Pages -->
+    <b:if cond='data:blog.searchLabel'>
+    <script type='application/ld+json'>
+    {
+        &quot;@context&quot;: &quot;https://schema.org&quot;,
+        &quot;@type&quot;: &quot;CollectionPage&quot;,
+        &quot;name&quot;: &quot;<data:blog.searchLabel/> - <data:blog.title/>&quot;,
+        &quot;url&quot;: &quot;<data:blog.canonicalUrl/>&quot;,
+        &quot;isPartOf&quot;: {
+            &quot;@type&quot;: &quot;WebSite&quot;,
+            &quot;name&quot;: &quot;<data:blog.title/>&quot;,
+            &quot;url&quot;: &quot;<data:blog.homepageUrl/>&quot;
+        },
+        &quot;inLanguage&quot;: &quot;ar&quot;
+    }
+    </script>
+    </b:if>
+</head>
+
+<body>
+    <!-- Skip Link for Accessibility -->
+    <a class='skip-link' href='#main-content'>تخطي إلى المحتوى الرئيسي</a>
+    
+    <!-- ===== Header ===== -->
+    <header class='header' role='banner'>
+        <div class='container'>
+            <!-- Right: Site Name -->
+            <div class='header-right'>
+                <b:section id='header-site' maxwidgets='1' showaddelement='yes'>
+                    <b:widget id='Header1' locked='true' title='رأس الصفحة' type='Header' version='2'>
+                        <b:includable id='main' var='this'>
+                            <div class='site-branding'>
+                                <b:include cond='data:imagePlacement in {"REPLACE", "BEFORE_DESCRIPTION"}' name='image'/>
+                                <b:include cond='data:imagePlacement not in {"REPLACE", "BEFORE_DESCRIPTION"}' name='title'/>
+                                <b:include cond='data:imagePlacement != "REPLACE"' name='description'/>
+                            </div>
+                            <b:include cond='data:imagePlacement == "BEHIND"' name='behindImageStyle'/>
+                        </b:includable>
+                        
+                        <b:includable id='behindImageStyle'>
+                            <b:if cond='data:sourceUrl'>
+                                <style type='text/css'>.header{background-image:url(<data:sourceUrl/>);background-position:center;background-repeat:no-repeat;background-size:cover;}</style>
+                            </b:if>
+                        </b:includable>
+                        
+                        <b:includable id='description'>
+                            <p class='site-description'><data:description/></p>
+                        </b:includable>
+                        
+                        <b:includable id='image'>
+                            <a class='header-image-wrapper' expr:href='data:blog.homepageUrl'>
+                                <b:include data='{image: data:image, altText: data:title, originalWidth: data:width, originalHeight: data:height}' name='responsiveImage'/>
+                            </a>
+                        </b:includable>
+                        
+                        <b:includable id='responsiveImage'>
+                            <b:if cond='data:image'>
+                                <img class='site-logo responsive-img' expr:alt='data:altText' expr:data-original-height='data:originalHeight' expr:data-original-width='data:originalWidth' expr:src='data:image'/>
+                            </b:if>
+                        </b:includable>
+                        
+                        <b:includable id='title'>
+                            <span class='site-title'>
+                                <a expr:href='data:blog.homepageUrl'><data:title/></a>
+                            </span>
+                        </b:includable>
+                    </b:widget>
+                </b:section>
+            </div>
+            
+            <!-- Center: Navigation -->
+            <div class='header-center'>
+                <b:section id='header-nav' maxwidgets='1' showaddelement='yes'>
+                    <b:widget id='LinkList1' locked='false' title='الأقسام' type='LinkList' version='2'>
+                        <b:includable id='main'>
+                            <nav class='header-nav'>
+                                <ul>
+                                    <b:loop values='data:links' var='link'>
+                                        <li><a expr:href='data:link.target'><data:link.name/></a></li>
+                                    </b:loop>
+                                </ul>
+                            </nav>
+                        </b:includable>
+                    </b:widget>
+                </b:section>
+            </div>
+            
+            <!-- Left: Social Buttons -->
+            <div class='header-left'>
+                <b:section id='header-social' maxwidgets='1' showaddelement='yes'>
+                    <b:widget id='HTML1' locked='false' title='أزرار التواصل' type='HTML' version='2'>
+                        <b:includable id='main'>
+                            <div class='header-social'>
+                                <button class='social-btn theme-toggle' onclick='toggleTheme()' title='الوضع المظلم'>
+                                    <i class='fas fa-moon'></i>
+                                </button>
+                                <a class='social-btn telegram' href='#' target='_blank' title='Telegram'><i class='fab fa-telegram-plane'></i></a>
+                                <a class='social-btn facebook' href='#' target='_blank' title='Facebook'><i class='fab fa-facebook-f'></i></a>
+                                <a class='social-btn twitter' href='#' target='_blank' title='Twitter'><i class='fab fa-x-twitter'></i></a>
+                            </div>
+                        </b:includable>
+                    </b:widget>
+                </b:section>
+            </div>
+        </div>
+    </header>
+    
+    <!-- ===== Main Navigation ===== -->
+    <nav aria-label='القائمة الرئيسية' class='main-nav' role='navigation'>
+        <b:section class='main-nav' id='main-nav' maxwidgets='1' showaddelement='yes'>
+            <b:widget id='LinkList2' locked='false' title='الدوريات' type='LinkList' version='2'>
+                <b:includable id='main'>
+                    <div class='container'>
+                        <ul>
+                            <b:loop values='data:links' var='link'>
+                                <li><a expr:href='data:link.target'><data:link.name/></a></li>
+                            </b:loop>
+                        </ul>
+                    </div>
+                </b:includable>
+            </b:widget>
+        </b:section>
+    </nav>
+    
+    <!-- ===== Main Content ===== -->
+    <main id='main-content' role='main'>
+        <!-- ===== Matches Section (Home Page Only) ===== -->
+        <b:if cond='data:blog.url == data:blog.homepageUrl'>
+            <section class='matches-section'>
+                <div class='container'>
+                    <div class='matches-container'>
+                        <b:section class='matches-list' id='matches-list' showaddelement='yes'>
+                            <b:widget id='HTML2' locked='false' title='جدول المباريات' type='HTML' version='2'>
+                                <b:includable id='main'>
+                                    <div class='matches-header'>
+                                        <div class='matches-header-top'>
+                                            <h2 class='matches-title'><i class='fas fa-futbol'></i><data:title/></h2>
+                                        </div>
+                                        <div class='matches-tabs'>
+                                            <button class='date-tab' onclick='switchDateTab(this, "yesterday")'>مباريات الأمس</button>
+                                            <button class='date-tab active' onclick='switchDateTab(this, "today")'>مباريات اليوم</button>
+                                            <button class='date-tab' onclick='switchDateTab(this, "tomorrow")'>مباريات الغد</button>
+                                        </div>
+                                        <div class='match-date'>
+                                            <i class='fas fa-calendar-alt'></i>
+                                            <span><script>document.write(new Date().toLocaleDateString('ar-EG', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }))</script></span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class='matches-list-container'>
+                                        <div class='match-card'>
+                                            <a href='#'><div class='play-overlay'><i class='fas fa-play'></i></div></a>
+                                            <div class='match-row-main'>
+                                                <div class='team-info right-team'>
+                                                    <div class='team-logo' style='background: linear-gradient(135deg, #ffffff 0%, #d4af37 100%); color: #333;'>RMA</div>
+                                                    <span class='team-name'>ريال مدريد</span>
+                                                </div>
+                                                <div class='match-time-container'>
+                                                    <span class='match-time'>22:45</span>
+                                                    <span class='match-status upcoming'>بعد قليل</span>
+                                                </div>
+                                                <div class='team-info left-team'>
+                                                    <span class='team-name'>برشلونة</span>
+                                                    <div class='team-logo' style='background: linear-gradient(135deg, #004D98 0%, #A50044 100%);'>BAR</div>
+                                                </div>
+                                            </div>
+                                            <div class='match-row-info'>
+                                                <div class='match-info-item trophy'><i class='fas fa-trophy'></i><span>إسبانيا • الدوري الإسباني</span></div>
+                                                <div class='match-info-item'><i class='fas fa-link'></i><span>غير معروف</span></div>
+                                                <div class='match-info-item tv'><i class='fas fa-tv'></i><span>beIN SPORTS HD 1</span></div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class='match-card'>
+                                            <a href='#'><div class='play-overlay'><i class='fas fa-play'></i></div></a>
+                                            <div class='match-row-main'>
+                                                <div class='team-info right-team'>
+                                                    <div class='team-logo' style='background: linear-gradient(135deg, #6CABDD 0%, #1C2C5B 100%);'>MCI</div>
+                                                    <span class='team-name'>مانشستر سيتي</span>
+                                                </div>
+                                                <div class='match-time-container'>
+                                                    <span class='match-time'>20:00</span>
+                                                    <span class='match-status live'>مباشر</span>
+                                                </div>
+                                                <div class='team-info left-team'>
+                                                    <span class='team-name'>ليفربول</span>
+                                                    <div class='team-logo' style='background: linear-gradient(135deg, #C8102E 0%, #00B2A9 100%);'>LIV</div>
+                                                </div>
+                                            </div>
+                                            <div class='match-row-info'>
+                                                <div class='match-info-item trophy'><i class='fas fa-trophy'></i><span>إنجلترا • الدوري الإنجليزي</span></div>
+                                                <div class='match-info-item'><i class='fas fa-link'></i><span>غير معروف</span></div>
+                                                <div class='match-info-item tv'><i class='fas fa-tv'></i><span>beIN SPORTS HD 2</span></div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class='match-card'>
+                                            <a href='#'><div class='play-overlay'><i class='fas fa-play'></i></div></a>
+                                            <div class='match-row-main'>
+                                                <div class='team-info right-team'>
+                                                    <div class='team-logo' style='background: linear-gradient(135deg, #004170 0%, #DA291C 100%);'>PSG</div>
+                                                    <span class='team-name'>باريس سان جيرمان</span>
+                                                </div>
+                                                <div class='match-time-container'>
+                                                    <span class='match-time'>23:00</span>
+                                                    <span class='match-status upcoming'>لم تبدأ</span>
+                                                </div>
+                                                <div class='team-info left-team'>
+                                                    <span class='team-name'>مارسيليا</span>
+                                                    <div class='team-logo' style='background: linear-gradient(135deg, #2FAEE0 0%, #D4E5F7 100%); color: #333;'>MAR</div>
+                                                </div>
+                                            </div>
+                                            <div class='match-row-info'>
+                                                <div class='match-info-item trophy'><i class='fas fa-trophy'></i><span>فرنسا • الدوري الفرنسي</span></div>
+                                                <div class='match-info-item'><i class='fas fa-link'></i><span>غير معروف</span></div>
+                                                <div class='match-info-item tv'><i class='fas fa-tv'></i><span>beIN SPORTS HD 3</span></div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class='match-card'>
+                                            <a href='#'><div class='play-overlay'><i class='fas fa-play'></i></div></a>
+                                            <div class='match-row-main'>
+                                                <div class='team-info right-team'>
+                                                    <div class='team-logo' style='background: linear-gradient(135deg, #DC052D 0%, #0066B1 100%);'>BAY</div>
+                                                    <span class='team-name'>بايرن ميونخ</span>
+                                                </div>
+                                                <div class='match-time-container'>
+                                                    <span class='match-time'>21:30</span>
+                                                    <span class='match-status finished'>انتهت</span>
+                                                </div>
+                                                <div class='team-info left-team'>
+                                                    <span class='team-name'>بوروسيا دورتموند</span>
+                                                    <div class='team-logo' style='background: linear-gradient(135deg, #FDE100 0%, #000000 100%); color: #FDE100;'>BVB</div>
+                                                </div>
+                                            </div>
+                                            <div class='match-row-info'>
+                                                <div class='match-info-item trophy'><i class='fas fa-trophy'></i><span>ألمانيا • الدوري الألماني</span></div>
+                                                <div class='match-info-item'><i class='fas fa-link'></i><span>غير معروف</span></div>
+                                                <div class='match-info-item tv'><i class='fas fa-tv'></i><span>غير معروف</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <data:content/>
+                                </b:includable>
+                            </b:widget>
+                        </b:section>
+                    </div>
+                </div>
+            </section>
+        </b:if>
+        
+        <!-- ===== Latest News / Label Search Section ===== -->
+        <b:if cond='data:blog.pageType != "item"'>
+            <section class='latest-news-section'>
+                <div class='container'>
+                    <div class='latest-news-header'>
+                        <!-- Show label name if on label page -->
+                        <b:if cond='data:blog.searchLabel'>
+                            <h2 class='latest-news-title'><i class='fas fa-folder-open'></i> <data:blog.searchLabel/></h2>
+                        <b:else/>
+                            <h2 class='latest-news-title'><i class='fas fa-newspaper'></i> آخر الأخبار</h2>
+                        </b:if>
+                    </div>
+                    
+                    <div class='news-cards-grid'>
+                        <b:section id='latest-news-posts' maxwidgets='1' showaddelement='yes'>
+                            <b:widget id='Blog1' locked='true' title='المقالات' type='Blog' version='2'>
+                                <b:includable id='main'>
+                                    <b:loop values='data:posts' var='post'>
+                                        <article class='article-card' itemscope='itemscope' itemtype='https://schema.org/NewsArticle'>
+                                            <a expr:href='data:post.url' expr:title='data:post.title'>
+                                                <div class='article-card-image'>
+                                                    <b:if cond='data:post.featuredImage'>
+                                                        <img expr:alt='data:post.title' expr:src='data:post.featuredImage' itemprop='image' loading='lazy'/>
+                                                    <b:else/>
+                                                        <div class='article-card-placeholder'>يلاشوت<span>Yalla Shoot</span></div>
+                                                    </b:if>
+                                                </div>
+                                                <div class='article-card-content'>
+                                                    <h2 class='article-card-title' itemprop='headline'><data:post.title/></h2>
+                                                    <div class='article-card-meta'>
+                                                        <span><i class='fas fa-calendar'></i> <time expr:datetime='data:post.date.iso8601' itemprop='datePublished'><data:post.date/></time></span>
+                                                        <span itemprop='author' itemscope='itemscope' itemtype='https://schema.org/Person'><i class='fas fa-user'></i> <span itemprop='name'><data:post.author.name/></span></span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </article>
+                                    </b:loop>
+                                </b:includable>
+                                <b:includable id='nextprev'>
+                                </b:includable>
+                            </b:widget>
+                        </b:section>
+                    </div>
+                    
+                    <!-- Show "Load More" button only on homepage -->
+                    <b:if cond='data:blog.url == data:blog.homepageUrl'>
+                        <div class='load-more-container'>
+                            <a class='load-more-btn' expr:href='data:blog.homepageUrl + "search"'>
+                                <i class='fas fa-sync-alt'></i>
+                                عرض المزيد
+                            </a>
+                        </div>
+                    </b:if>
+                </div>
+            </section>
+        </b:if>
+        
+        <!-- ===== Single Post Page ===== -->
+        <b:if cond='data:blog.pageType == "item"'>
+            <section class='post-page'>
+                <div class='container'>
+                    <b:section id='post-section' maxwidgets='1' showaddelement='yes'>
+                        <b:widget id='Blog2' locked='true' title='المقال' type='Blog' version='2'>
+                            <b:includable id='main'>
+                                <b:loop values='data:posts' var='post'>
+                                    <!-- Breadcrumbs for SEO -->
+                                    <nav aria-label='مسار التنقل' class='breadcrumbs' role='navigation'>
+                                        <a expr:href='data:blog.homepageUrl'><i class='fas fa-home'></i> الرئيسية</a>
+                                        <span class='separator'><i class='fas fa-chevron-left'></i></span>
+                                        <b:if cond='data:post.labels'>
+                                            <b:loop index='i' values='data:post.labels' var='label'>
+                                                <b:if cond='data:i == 0'>
+                                                    <a expr:href='data:label.url'><data:label.name/></a>
+                                                    <span class='separator'><i class='fas fa-chevron-left'></i></span>
+                                                </b:if>
+                                            </b:loop>
+                                        </b:if>
+                                        <span class='current'><data:post.title/></span>
+                                    </nav>
+                                    
+                                    <article class='post-container' itemscope='itemscope' itemtype='https://schema.org/Article'>
+                                        <div class='post-header'>
+                                            <h1 class='post-title' itemprop='headline'><data:post.title/></h1>
+                                            <div class='post-meta'>
+                                                <span itemprop='author' itemscope='itemscope' itemtype='https://schema.org/Person'>
+                                                    <i class='fas fa-user'></i> <span itemprop='name'><data:post.author.name/></span>
+                                                </span>
+                                                <span><i class='fas fa-calendar'></i> <time expr:datetime='data:post.date.iso8601' itemprop='datePublished'><data:post.date/></time></span>
+                                                <b:if cond='data:post.labels'>
+                                                    <span><i class='fas fa-tag'></i>
+                                                        <b:loop values='data:post.labels' var='label'>
+                                                            <a expr:href='data:label.url' rel='tag'><data:label.name/></a><b:if cond='data:label.isLast != "true"'>، </b:if>
+                                                        </b:loop>
+                                                    </span>
+                                                </b:if>
+                                            </div>
+                                        </div>
+                                        
+                                        <b:if cond='data:post.featuredImage'>
+                                            <img class='post-featured-image' expr:alt='data:post.title' expr:src='data:post.featuredImage' itemprop='image' loading='eager'/>
+                                        </b:if>
+                                        
+                                        <div class='post-content' itemprop='articleBody'>
+                                            <data:post.body/>
+                                        </div>
+                                        
+                                        <b:if cond='data:post.labels'>
+                                            <div class='post-tags'>
+                                                <span class='post-tags-title'><i class='fas fa-tags'></i> الوسوم:</span>
+                                                <b:loop values='data:post.labels' var='label'>
+                                                    <a expr:href='data:label.url'><data:label.name/></a>
+                                                </b:loop>
+                                            </div>
+                                        </b:if>
+                                        
+                                        <!-- ===== Modern Comments Section ===== -->
+                                        <div class='comments-wrapper' id='comments'>
+                                            <div class='comments-header'>
+                                                <h3 class='comments-header-title'>
+                                                    <i class='fas fa-comments'></i>
+                                                    التعليقات
+                                                </h3>
+                                                <span class='comments-count'>
+                                                    <b:if cond='data:post.numberOfComments > 0'>
+                                                        <data:post.numberOfComments/> تعليق
+                                                    <b:else/>
+                                                        0 تعليق
+                                                    </b:if>
+                                                </span>
+                                            </div>
+                                            
+                                            <div class='comments-content'>
+                                                <!-- Comments List -->
+                                                <b:if cond='data:post.numberOfComments > 0'>
+                                                        <div class='comments-list'>
+                                                        <b:loop values='data:post.comments' var='comment'>
+                                                            <div class='comment-item'>
+                                                                <div class='comment-header'>
+                                                                    <div class='comment-author-info'>
+                                                                        <div class='comment-avatar'>
+                                                                            <data:comment.authorAvatarImage/>
+                                                                        </div>
+                                                                        <div>
+                                                                            <span class='comment-author-name'>
+                                                                                <b:if cond='data:comment.authorUrl'>
+                                                                                    <a expr:href='data:comment.authorUrl' rel='nofollow' target='_blank'><data:comment.author/></a>
+                                                                                <b:else/>
+                                                                                    <data:comment.author/>
+                                                                                </b:if>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <span class='comment-time'>
+                                                                        <i class='fas fa-clock'></i>
+                                                                        <data:comment.timestamp/>
+                                                                    </span>
+                                                                </div>
+                                                                <div class='comment-body'>
+                                                                    <data:comment.body/>
+                                                                </div>
+                                                            </div>
+                                                        </b:loop>
+                                                    </div>
+                                                <b:else/>
+                                                    <div class='no-comments-message'>
+                                                        <i class='fas fa-comment-slash'></i>
+                                                        <p>لا توجد تعليقات حتى الآن، كن أول من يعلق!</p>
+                                                    </div>
+                                                </b:if>
+                                                
+                                                <!-- Comment Form -->
+                                                <b:if cond='data:post.allowComments'>
+                                                    <div class='comment-form-container'>
+                                                        <h4><i class='fas fa-pen-fancy'></i> اترك تعليقاً</h4>
+                                                        <div class='comment-iframe-wrapper'>
+                                                            <b:if cond='data:post.embedCommentForm'>
+                                                                <b:include data='post' name='threaded-comment-form'/>
+                                                            <b:else/>
+                                                                <b:include data='post' name='comment-form'/>
+                                                            </b:if>
+                                                        </div>
+                                                    </div>
+                                                </b:if>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </b:loop>
+                            </b:includable>
+                            
+                            <!-- Comment Form Includable -->
+                            <b:includable id='comment-form' var='post'>
+                                <div class='comment-form'>
+                                    <b:if cond='data:post.commentFormIframeSrc'>
+                                        <a expr:href='data:post.commentFormIframeSrc' target='_blank' class='comment-form-trigger'>
+                                            <i class='fas fa-plus-circle'></i>
+                                            أضف تعليقاً جديداً
+                                        </a>
+                                    <b:else/>
+                                        <a expr:href='data:post.url + "#comment-form"' class='comment-form-trigger'>
+                                            <i class='fas fa-plus-circle'></i>
+                                            أضف تعليقاً جديداً
+                                        </a>
+                                    </b:if>
+                                </div>
+                            </b:includable>
+                            
+                            <!-- Threaded Comment Form Includable -->
+                            <b:includable id='threaded-comment-form' var='post'>
+                                <b:if cond='data:post.commentFormIframeSrc'>
+                                    <iframe allow-transparency='true' class='blogger-iframe-colorize' frameborder='0' height='410' id='comment-editor' name='comment-editor' width='100%' expr:src='data:post.commentFormIframeSrc'/>
+                                <b:else/>
+                                    <div class='comment-form-fallback'>
+                                        <p style='text-align:center;padding:20px;color:#666;'>
+                                            <i class='fas fa-info-circle' style='font-size:24px;display:block;margin-bottom:10px;'></i>
+                                            يرجى زيارة صفحة المقال لإضافة تعليق
+                                        </p>
+                                    </div>
+                                </b:if>
+                            </b:includable>
+                            
+                            <!-- Comments Includable -->
+                            <b:includable id='comments' var='post'>
+                            </b:includable>
+                            
+                            <b:includable id='post' var='post'/>
+                            <b:includable id='nextprev'/>
+                        </b:widget>
+                    </b:section>
+                    
+                    <!-- ===== Related Posts ===== -->
+                    <section class='related-posts'>
+                        <h3 class='related-title'><i class='fas fa-newspaper'></i> مقالات ذات صلة</h3>
+                        <div class='related-grid'>
+                            <b:section id='related-posts-section' maxwidgets='1' showaddelement='yes'>
+                                <b:widget id='PopularPosts1' locked='false' title='مقالات ذات صلة' type='PopularPosts' version='2'>
+                                    <b:includable id='main'>
+                                        <b:loop values='data:posts' var='post'>
+                                            <article class='article-card'>
+                                                <a expr:href='data:post.url'>
+                                                    <div class='article-card-image'>
+                                                        <b:if cond='data:post.featuredImage'>
+                                                            <img expr:alt='data:post.title' expr:src='data:post.featuredImage'/>
+                                                        <b:else/>
+                                                            <div class='article-card-placeholder'>يلاشوت<span>Yalla Shoot</span></div>
+                                                        </b:if>
+                                                    </div>
+                                                    <div class='article-card-content'>
+                                                        <h3 class='article-card-title'><data:post.title/></h3>
+                                                        <div class='article-card-meta'>
+                                                            <span><i class='fas fa-calendar'></i> <data:post.date/></span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </article>
+                                        </b:loop>
+                                    </b:includable>
+                                </b:widget>
+                            </b:section>
+                        </div>
+                    </section>
+                </div>
+            </section>
+        </b:if>
+    </main>
+    
+    <!-- ===== Footer ===== -->
+    <footer class='footer' role='contentinfo'>
+        <div class='container'>
+            <div class='footer-widgets'>
+                <div class='footer-widget footer-about'>
+                    <h4>عن الموقع</h4>
+                    <p>يلا شوت هو موقع رياضي عربي متخصص في تقديم تغطية شاملة للمباريات الرياضية حول العالم. نقدم لكم مواعيد المباريات والبث المباشر والنتائج الفورية لجميع الدوريات الأوروبية والعربية.</p>
+                    <div class='footer-social'>
+                        <a aria-label='Facebook' class='social-btn facebook' href='#' rel='noopener noreferrer' target='_blank'><i class='fab fa-facebook-f'></i></a>
+                        <a aria-label='Twitter' class='social-btn twitter' href='#' rel='noopener noreferrer' target='_blank'><i class='fab fa-x-twitter'></i></a>
+                        <a aria-label='Telegram' class='social-btn telegram' href='#' rel='noopener noreferrer' target='_blank'><i class='fab fa-telegram-plane'></i></a>
+                    </div>
+                </div>
+                
+                <div class='footer-widget'>
+                    <h4>روابط سريعة</h4>
+                    <nav aria-label='روابط سريعة'>
+                        <ul>
+                            <li><a href='/'><i class='fas fa-chevron-left'></i> الرئيسية</a></li>
+                            <li><a href='#'><i class='fas fa-chevron-left'></i> مباريات اليوم</a></li>
+                            <li><a href='#'><i class='fas fa-chevron-left'></i> جدول المباريات</a></li>
+                            <li><a href='#'><i class='fas fa-chevron-left'></i> الأخبار الرياضية</a></li>
+                            <li><a href='#'><i class='fas fa-chevron-left'></i> ترتيب الدوريات</a></li>
+                            <li><a href='#'><i class='fas fa-chevron-left'></i> اتصل بنا</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class='footer-widget'>
+                    <h4>الدوريات</h4>
+                    <nav aria-label='الدوريات'>
+                        <ul>
+                            <li><a href='#'><i class='fas fa-trophy'></i> دوري أبطال أوروبا</a></li>
+                            <li><a href='#'><i class='fas fa-trophy'></i> الدوري الإنجليزي</a></li>
+                            <li><a href='#'><i class='fas fa-trophy'></i> الدوري الإسباني</a></li>
+                            <li><a href='#'><i class='fas fa-trophy'></i> الدوري الألماني</a></li>
+                            <li><a href='#'><i class='fas fa-trophy'></i> الدوري الإيطالي</a></li>
+                            <li><a href='#'><i class='fas fa-trophy'></i> الدوري الفرنسي</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            
+            <div class='footer-bottom'>
+                <p class='footer-text'>© <span id='currentYear'></span> جميع الحقوق محفوظة <a href='/' style='color:inherit;'><data:blog.title/></a> | بث مباشر للمباريات</p>
+                <a class='footer-link' href='/'>يلا شوت</a>
+            </div>
+        </div>
+    </footer>
+    
+    <button aria-label='العودة للأعلى' class='back-to-top' id='backToTop' onclick='window.scrollTo({top: 0, behavior: "smooth"})' style='position:fixed;bottom:30px;left:30px;width:45px;height:45px;border-radius:50%;background-color:var(--color-red);color:#fff;border:none;cursor:pointer;display:none;align-items:center;justify-content:center;font-size:18px;box-shadow:var(--shadow-medium);transition:all 0.3s ease;z-index:999;'>
+        <i class='fas fa-chevron-up'></i>
+    </button>
+    
+    <script>
+    // Set current year
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    
+    window.addEventListener('scroll', function() {
+        var btn = document.getElementById('backToTop');
+        btn.style.display = window.pageYOffset > 300 ? 'flex' : 'none';
+    });
+    </script>
+</body>
+</html>
